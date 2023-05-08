@@ -45,10 +45,6 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-data "aws_vpc" "selected" {
-  id = var.VPC_ID
-}
-
 variable "VPC_ID" {
   type = string
 }
@@ -70,7 +66,7 @@ resource "aws_instance" "web" {
 
 resource "aws_security_group" "web-sg" {
   name   = "${random_pet.sg.id}-sg"
-  vpc_id = data.aws_vpc.selected
+  vpc_id = var.VPC_ID
   ingress {
     from_port   = 8080
     to_port     = 8080
