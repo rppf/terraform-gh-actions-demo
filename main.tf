@@ -30,7 +30,8 @@ provider "aws" {
 resource "random_pet" "sg" {}
 
 variable "VPC_ID" {
-  type = string
+  type    = string
+  default = ""
 }
 
 data "aws_ami" "ubuntu" {
