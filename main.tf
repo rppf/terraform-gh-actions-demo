@@ -29,11 +29,6 @@ provider "aws" {
 
 resource "random_pet" "sg" {}
 
-variable "VPC_ID" {
-  type    = string
-  default = ""
-}
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
